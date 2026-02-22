@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kvk-rest-api-template
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kvk-rest-api-template
+  template:
+    metadata:
+      labels:
+        app: kvk-rest-api-template
+    spec:
+      containers:
+      - name: kvk-rest-api-template
+        image: kvk-rest-api-template:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /api/health/ready
+            port: 3000
+        livenessProbe:
+          httpGet:
+            path: /api/health/live
+            port: 3000
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+  limits:
+    cpu: 500m
+    memory: 512Mi

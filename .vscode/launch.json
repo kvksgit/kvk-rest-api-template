@@ -1,0 +1,13 @@
+{
+ "version": "1.0.0",
+ "configurations": [
+
+  {
+   "type": "node",
+   "request": "launch",
+   "name": "Debug API",
+   "runtimeExecutable": "npm",
+   "runtimeArgs": ["run", "dev"]
+  }
+ ]
+}

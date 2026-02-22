@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: kvk-rest-api-template
+
+spec:
+  selector:
+    app: kvk-rest-api-template
+
+  ports:
+  - port: 80
+    targetPort: 3000
+
+  type: ClusterIP
+  
