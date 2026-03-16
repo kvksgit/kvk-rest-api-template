@@ -20,7 +20,6 @@
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "automergeStrategy": "squash",
-      "automergeType": "pr",
       "labels": ["dependencies", "automerged"]
     },
     {
@@ -33,7 +32,8 @@
       "description": "High priority for security updates",
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["patch"],
-      "schedule": ["at any time"]
+      "schedule": ["at any time"],
+      "labels": ["dependencies", "security"]
     },
     {
       "description": "Group dev dependencies",
@@ -44,7 +44,8 @@
     {
       "description": "Extended stability for production dependencies",
       "matchDepTypes": ["dependencies"],
-      "minimumReleaseAge": "3 days"
+      "minimumReleaseAge": "3 days",
+      "labels": ["dependencies", "production"]
     },
     {
       "description": "Pin Docker digests",
@@ -65,7 +66,7 @@
   ],
   "prConcurrentLimit": 3,
   "prCreationLimit": 2,
-  "semanticCommits": "enabled",
+  "semanticCommits": true,
   "commitMessagePrefix": "chore(deps):",
   "commitMessageAction": "update",
   "commitMessageTopic": "{{depName}}",
