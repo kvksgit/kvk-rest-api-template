@@ -8,7 +8,6 @@
     "schedule:weekly"
   ],
   "timezone": "UTC",
-  "schedule": ["before 3am on Monday"],
   "vulnerabilityAlerts": {
     "enabled": true,
     "schedule": ["at any time"]
@@ -55,7 +54,7 @@
     {
       "description": "Non-major updates for TypeScript",
       "matchPackagePatterns": ["^typescript$"],
-      "allowedVersions": "!/^6"
+      "matchUpdateTypes": ["minor", "patch"]
     },
     {
       "description": "Node version updates with extended stability",
@@ -66,7 +65,6 @@
   ],
   "prConcurrentLimit": 3,
   "prCreationLimit": 2,
-  "semanticCommits": true,
   "commitMessagePrefix": "chore(deps):",
   "commitMessageAction": "update",
   "commitMessageTopic": "{{depName}}",
